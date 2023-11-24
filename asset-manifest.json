@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lorentz-transformer/static/css/main.4e2cbc2d.css",
+    "main.js": "/lorentz-transformer/static/js/main.5541ed03.js",
+    "index.html": "/lorentz-transformer/index.html",
+    "main.4e2cbc2d.css.map": "/lorentz-transformer/static/css/main.4e2cbc2d.css.map",
+    "main.5541ed03.js.map": "/lorentz-transformer/static/js/main.5541ed03.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e2cbc2d.css",
+    "static/js/main.5541ed03.js"
+  ]
+}
