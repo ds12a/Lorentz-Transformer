@@ -1,7 +1,7 @@
 {
   "name": "lorentz-transformer",
   "version": "0.1.0",
-  "homepage": "https://ds12a.github.io/lorentz-transformer",
+  "homepage": "https://ds12a.github.io/Lorentz-Transformer",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
