@@ -19,7 +19,7 @@ export default function Diagram({ plotInfos }) {
             pad: 5
         }, title: false,
         width: '1000'
-    }	 
+    };	 
 
     return (
         <Plot

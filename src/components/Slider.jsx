@@ -13,9 +13,9 @@ export default function Slider({onUpdate, name, max}) {
                 max={max}
                 step="0.001"
                 value={value}
-                onChange={(e) => {setValue(e.target.value); onUpdate(e.target.value)}}
+                onChange={(e) => { setValue(parseFloat(e.target.value)); onUpdate(parseFloat(e.target.value))}}
             />
-            <p>Current: {value} c</p>
+            <p>Current: {value.toFixed(3)} c</p>
         </div>
     );
 }

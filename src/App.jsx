@@ -1,3 +1,4 @@
+// Copyright © 2023 ds12a
 import './App.css';
 import Diagram from './components/Diagram';
 import PlotInfo from './PlotInfo';
@@ -7,7 +8,9 @@ import { useEffect } from 'react';
 import PointList from './components/PointList';
 
 function App() {
-  const [restInfo, setRestInfo] = useState([new PlotInfo([0, 1, 2], [0, 0.5, 0], [0, 0, 0]), new PlotInfo([0, 1, 2], [0, 1, 2], [0, 0, 0])]);
+  const windowUrl = window.location.search;
+  const params = new URLSearchParams(windowUrl);
+  const [restInfo, setRestInfo] = useState(params.has("pi") ? JSON.parse(atob(params.get("pi"))) : [new PlotInfo([0, 1, 2], [0, 0.5, 1], [0, 0, 0]), new PlotInfo([0, 1, 2], [0, 1, 2], [0, 0, 0])]);
   const [plotInfos, setPlotInfos] = useState([]);
   const [velocityX, setVelocityX] = useState(0);
   const [velocityY, setVelocityY] = useState(0);
@@ -15,6 +18,7 @@ function App() {
   useEffect(() => {
     setPlotInfos(computeLorentzTransform(restInfo, velocityX, velocityY));
   }, [velocityX, velocityY, restInfo]);
+
 
   return (
     <div className="app-content" >
@@ -46,7 +50,9 @@ function App() {
             modified.splice(index, 1);
             setRestInfo(modified);
           }}
-            />
+        />
+        <br /><br />
+        <button onClick={() => { console.log(btoa(JSON.stringify(restInfo))); navigator.clipboard.writeText(window.location.href.split('?')[0] + "?pi=" + btoa(JSON.stringify(restInfo))); }}>Copy URL</button>
       </div>
     </div>
   );
