@@ -14,7 +14,7 @@ function App() {
   const [plotInfos, setPlotInfos] = useState([]);
   const [velocityX, setVelocityX] = useState(0);
   const [velocityY, setVelocityY] = useState(0);
-  const [detail, setDetail] = useState(5);
+  const [detail, setDetail] = useState(10);
 
   useEffect(() => {
     setPlotInfos(computeLorentzTransform(restInfo, velocityX, velocityY));
@@ -28,7 +28,7 @@ function App() {
         <p>Velocity Controls:</p>
         <Slider onUpdate={setVelocityX} max={Math.sqrt(0.99 - velocityY * velocityY)} name={"Vx"} />
         <Slider onUpdate={setVelocityY} max={Math.sqrt(0.99 - velocityX * velocityX)} name={"Vy"} />
-        <Slider onUpdate={setDetail} max={50} min={1} step={1} name={"Interpolated Points"} decPoints={0}/>
+        <Slider onUpdate={setDetail} max={100} min={1} step={1} name={"Interpolated Points"} decPoints={0} passedValue={detail}/>
         <PointList plotInfos={restInfo} onDelete={(plot, index) => {
           var modified = structuredClone(restInfo);
           Object.entries(restInfo[plot]).map(([key, value]) => modified[plot][key].splice(index, 1));

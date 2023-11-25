@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-export default function Slider({onUpdate, name, max, min=-max, step="0.001", decPoints=3}) {
-    const [value, setValue] = useState(0);
+export default function Slider({onUpdate, name, max, min=-max, step="0.001", decPoints=3, passedValue=0}) {
+    const [value, setValue] = useState(passedValue);
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
