@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Lorentz-Transformer/static/css/main.4e2cbc2d.css",
-    "main.js": "/Lorentz-Transformer/static/js/main.3de04bea.js",
+    "main.js": "/Lorentz-Transformer/static/js/main.764cb602.js",
     "index.html": "/Lorentz-Transformer/index.html",
     "main.4e2cbc2d.css.map": "/Lorentz-Transformer/static/css/main.4e2cbc2d.css.map",
-    "main.3de04bea.js.map": "/Lorentz-Transformer/static/js/main.3de04bea.js.map"
+    "main.764cb602.js.map": "/Lorentz-Transformer/static/js/main.764cb602.js.map"
   },
   "entrypoints": [
     "static/css/main.4e2cbc2d.css",
-    "static/js/main.3de04bea.js"
+    "static/js/main.764cb602.js"
   ]
 }
