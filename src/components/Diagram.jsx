@@ -23,7 +23,7 @@ export default function Diagram({ passedPlotInfos, detail }) {
     };
 
     const range = (len, start, stop) =>
-        Array.from({ length: len }, (_, i) => start + (stop - start) / len * i);
+        Array.from({ length: len }, (_, i) => Number(start) + (Number(stop) - Number(start)) / len * i);
     const mask = (len) =>
         Array.from({ length: len }, (_, i) => (i === 0 ? 12 : 0));
 
@@ -51,7 +51,6 @@ export default function Diagram({ passedPlotInfos, detail }) {
         modified[i] = newPlotInfo;
     }
     plotInfos = modified;
-
 
     return (
         <Plot
