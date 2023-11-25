@@ -14,6 +14,7 @@ function App() {
   const [plotInfos, setPlotInfos] = useState([]);
   const [velocityX, setVelocityX] = useState(0);
   const [velocityY, setVelocityY] = useState(0);
+  const [detail, setDetail] = useState(5);
 
   useEffect(() => {
     setPlotInfos(computeLorentzTransform(restInfo, velocityX, velocityY));
@@ -22,11 +23,12 @@ function App() {
 
   return (
     <div className="app-content" >
-      <Diagram plotInfos={plotInfos} />
+      <Diagram passedPlotInfos={plotInfos} detail={detail}/>
       <div className="sliders">
         <p>Velocity Controls:</p>
         <Slider onUpdate={setVelocityX} max={Math.sqrt(0.99 - velocityY * velocityY)} name={"Vx"} />
         <Slider onUpdate={setVelocityY} max={Math.sqrt(0.99 - velocityX * velocityX)} name={"Vy"} />
+        <Slider onUpdate={setDetail} max={50} min={1} step={1} name={"Interpolated Points"} decPoints={0}/>
         <PointList plotInfos={restInfo} onDelete={(plot, index) => {
           var modified = structuredClone(restInfo);
           Object.entries(restInfo[plot]).map(([key, value]) => modified[plot][key].splice(index, 1));
@@ -52,7 +54,7 @@ function App() {
           }}
         />
         <br /><br />
-        <button onClick={() => { console.log(btoa(JSON.stringify(restInfo))); navigator.clipboard.writeText(window.location.href.split('?')[0] + "?pi=" + btoa(JSON.stringify(restInfo))); }}>Copy URL</button>
+        <button onClick={() => { navigator.clipboard.writeText(window.location.href.split('?')[0] + "?pi=" + btoa(JSON.stringify(restInfo))); }}>Copy URL</button>
       </div>
     </div>
   );
