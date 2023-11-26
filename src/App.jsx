@@ -25,9 +25,10 @@ function App() {
     <div className="app-content" >
       <Diagram passedPlotInfos={plotInfos} detail={detail}/>
       <div className="sliders">
-        <p>Velocity Controls:</p>
+        <b>Velocity Controls</b>
         <Slider onUpdate={setVelocityX} max={Math.sqrt(0.99 - velocityY * velocityY)} name={"Vx"} />
         <Slider onUpdate={setVelocityY} max={Math.sqrt(0.99 - velocityX * velocityX)} name={"Vy"} />
+        <b>Interpolation</b>
         <Slider onUpdate={setDetail} max={100} min={1} step={1} name={"Interpolated Points"} decPoints={0} passedValue={detail}/>
         <PointList plotInfos={restInfo} onDelete={(plot, index) => {
           var modified = structuredClone(restInfo);

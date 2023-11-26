@@ -8,6 +8,8 @@ export default function PointList({ plotInfos, onDelete, onAdd, onObserverAdd, o
 
     return (
         <>
+            <b>Data</b>
+            <br />
             <>
                 <label>Choose the observer: </label>
                 <select onChange={(e) => setSelected(e.target.value)}>
